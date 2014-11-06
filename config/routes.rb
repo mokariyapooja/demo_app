@@ -1,4 +1,24 @@
 Rails.application.routes.draw do
+  
+  devise_for :users, path_names: {:sign_in => 'login', :sign_up => 'register'},:controllers => {:sessions=>"users/sessions",:passwords => "users/passwords",:registrations=>"users/registrations"}
+  devise_scope :user do 
+     root 'devise/sessions#new'
+  end
+
+  #for facebook
+  get 'auth/:provider/callback', to: 'session#create'
+  get 'auth/failure', to: redirect('/')
+
+  #for gmail
+  get "/users/:provider/callback" => "users#index"
+  get "/oauth2callback" => "users#index"
+
+  resources :users,only:[:index,:show] do
+    collection do
+      post 'send_invitation'
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

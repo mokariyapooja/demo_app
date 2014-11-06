@@ -1,0 +1,7 @@
+<h4>user name : <%= @user.name %></h4>  
+<h1>Hello Friends</h1>
+<p>Welcome to my site!</p>
+  <% if user_signed_in? %>
+    <%= social_share_button_tag(@user.name)%>
+  <% end %>
+<h4><%= link_to 'Back', users_path %></h4>
