@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     if params[:email].present?
       params[:template] == "template"
       Notification.invite_user_template(params[:email]).deliver
-      flash[:notice] = "Mail Sent Successfully"
+      flash[:notice] = "Mail Sent Successfully To All"
       redirect_to users_path
     else
       render 'invite'
