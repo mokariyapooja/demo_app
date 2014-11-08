@@ -13,13 +13,20 @@ class UsersController < ApplicationController
   end 
 
   def send_invitation
-    if params[:email].present?
+    if params['accept'].present? 
       params[:template] == "template"
-      Notification.invite_user_template(params[:email]).deliver
-      flash[:notice] = "Mail Sent Successfully To All"
-      redirect_to users_path
+      params['accept'].each do |email|
+        Notification.invite_user_template(email).deliver
+        flash[:notice] = "Mail Sent Successfully"
+      end  
+    elsif  params[:email].present?
+      params[:email].each_line do |email|
+        Notification.invite_user_template(email).deliver
+        flash[:notice] = "Mail Sent Successfully"
+      end
     else
-      render 'invite'
+      flash[:notice] = "plese give email to send mail"
     end
+    redirect_to users_path
   end
 end

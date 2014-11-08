@@ -1,15 +1,16 @@
-<h4>Invite User</h4>
-<p>
-  <%= form_tag send_invitation_users_path  do %>
-    <%= text_field_tag :email, "", :placeholder => "Enter Email", :autofocus => true, :data => { :required => "true"} %>
-    <%= submit_tag "Invite" %>
-  <% end %>
-</p>
-<h4>OmniContacts Example</h4>
+<h4>Contacts From Gmail</h4>
   <a href="/contacts/gmail">Get Gmail Contects</a>
-    <% if !@contacts.nil?%>
-      <% @contacts.each do |c|%>
-        <ul><li><%= c[:name]%> : <%= link_to c[:email]%></li></ul>
+    <% if !@contacts.nil?%> 
+      <p><input type="checkbox" id="selectall">select all</p>
+      <%= form_tag(send_invitation_users_path) do %>
+        <% @contacts.each do |c|%>
+          <p>
+            <%= check_box_tag "accept[]" , c[:email] %>
+            <%= label_tag 'accept', c[:email] %>
+          </p>
+        <%end%>
+        <%= text_field_tag :email, "", :placeholder => "Enter Email", :autofocus => true, :data => { :required => "true"} %>
+        <%= submit_tag "send_invitation" %>
       <%end%>
     <%end%>
 <h4><%= @title %></h4>

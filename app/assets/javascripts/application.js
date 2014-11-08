@@ -15,3 +15,17 @@
 //= require turbolinks
 //= require social-share-button
 //= require_tree .
+
+$(document).ready(function(){
+  $("#selectall").click(function(){
+    if(this.checked) {
+      $(':checkbox').each(function() {
+        this.checked = true; 
+      });
+    } else {
+      $(':checkbox').each(function() {
+        this.checked = false; 
+      });
+    }
+  });
+});
