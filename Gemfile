@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'mailcatcher'
 end
  
 group :production do
@@ -50,4 +51,3 @@ gem 'omniauth-facebook'
 gem 'social-share-button'
 #import contacts from social side
 gem 'omnicontacts'
-gem 'mailcatcher'
