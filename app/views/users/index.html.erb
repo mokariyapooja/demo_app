@@ -6,6 +6,21 @@
   appId:'1497909220484266',cookie:true,status:true,xfbml:true});
 </script>
 
+<script>
+function FBInvite(){
+  FB.ui({
+   method: 'apprequests',
+   message: 'Invite your Facebook Friends'
+  },function(response) {
+   if (response) {
+    alert('Successfully Invited');
+   } else {
+    alert('Failed To Invite');
+   }
+  });
+  }
+</script>
+
 <h4>Get Your Gmail Contect :=>
   <a href="/contacts/gmail">Here</a></h4>
     <% if !@contacts.nil?%> 
