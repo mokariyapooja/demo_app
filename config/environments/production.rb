@@ -80,11 +80,12 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = {:host => 'localhost:3000'}
+  config.action_mailer.default_url_options = {:host => 'herokuapp:3000'}
   config.action_mailer.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
     :address        => "smtp.mandrillapp.com",
     :port           => 587,
+    :domain         =>'heroku.com',
     :authentication => :plain,
     :user_name      => "pooja.apsolute@gmail.com",
     :password       => Rails.application.secrets.mandrill_api_key
