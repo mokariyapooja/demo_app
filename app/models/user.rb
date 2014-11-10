@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   #validation
   validates :name, presence: :true 
 
+  #facebook login
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider 

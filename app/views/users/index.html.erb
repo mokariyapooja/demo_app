@@ -1,5 +1,13 @@
-<h4>Contacts From Gmail</h4>
-  <a href="/contacts/gmail">Get Gmail Contects</a>
+<script src="http://connect.facebook.net/en_US/all.js"></script>
+<h4>Invite Facebook Friends :=>
+<a href="#" onclick="FBInvite()">Here</a></h4>
+<script>
+ FB.init({
+  appId:'1497909220484266',cookie:true,status:true,xfbml:true});
+</script>
+
+<h4>Get Your Gmail Contect :=>
+  <a href="/contacts/gmail">Here</a></h4>
     <% if !@contacts.nil?%> 
       <p><input type="checkbox" id="selectall">select all</p>
       <%= form_tag(send_invitation_users_path) do %>
@@ -10,7 +18,7 @@
           </p>
         <%end%>
         <%= text_field_tag :email, "", :placeholder => "Enter Email", :autofocus => true, :data => { :required => "true"} %>
-        <%= submit_tag "send_invitation" %>
+        <%= submit_tag "Send Invitation" %>
       <%end%>
     <%end%>
 <h4><%= @title %></h4>
