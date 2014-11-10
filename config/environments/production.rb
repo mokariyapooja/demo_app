@@ -80,7 +80,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = {:host => 'herokuapp:3000'}
+  config.action_mailer.default_url_options = {:host => 'demo-app-project.herokuapp.com'}
   config.action_mailer.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
     :address        => "smtp.mandrillapp.com",
